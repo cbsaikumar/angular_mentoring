@@ -1,0 +1,20 @@
+.Rectangle {
+  width: 100%;
+  height: 64px;
+  background-color: #414452;
+}
+.Copyright-Videocou {
+  width: 266px;
+  height: 24px;
+  font-family: SourceSansPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4;
+  letter-spacing: normal;
+  text-align: right;
+  color: #c0c3ce;
+  float: right;
+  padding: 10px;
+}

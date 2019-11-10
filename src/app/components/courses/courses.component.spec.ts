@@ -1,3 +1,6 @@
+import { FormsModule } from '@angular/forms';
+import { CourseComponent } from './../course/course.component';
+import { SearchComponent } from './../search/search.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoursesComponent } from './courses.component';
@@ -8,7 +11,8 @@ describe('CoursesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursesComponent ]
+      declarations: [ CoursesComponent, SearchComponent, CourseComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));
@@ -21,5 +25,23 @@ describe('CoursesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should console log the id while editing', () => {
+    const spyOnLog = spyOn(console, 'log');
+    component.onDelete('1');
+    expect(spyOnLog).toHaveBeenCalled();
+  });
+
+  it('should call ngOnChanges life cycle hook', () => {
+    const spyOnNgOnChanges = spyOn(component, 'ngOnChanges');
+    component.ngOnChanges();
+    expect(spyOnNgOnChanges).toHaveBeenCalled();
+  });
+
+  it('should call ngOnInit life cycle hook', () => {
+    const spyOnNgOnInit = spyOn(component, 'ngOnInit');
+    component.ngOnInit();
+    expect(spyOnNgOnInit).toHaveBeenCalled();
   });
 });

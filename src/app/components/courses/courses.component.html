@@ -4,12 +4,15 @@
 
 <div class='content'>
   <app-search></app-search>
-  <div class='add-course' (click)='addCourse()'>
-    <i class='fa fa-plus' aria-hidden='true'></i>
-    <span>Add Course</span>
+  <div class="add-course-section">
+    <div></div>
+    <div class='add-course' (click)='addCourse()'>
+      <i class='fa fa-plus' aria-hidden='true'></i>
+      <span>Add Course</span>
+    </div>
   </div>
   <app-course *ngFor='let course of courses' [course]='course' (deleteEvent)='onDelete($event)'></app-course>
   <div class='rectangle load-more' (click)='loadMore()'>
-      LOAD MORE
+    LOAD MORE
   </div>
 </div>

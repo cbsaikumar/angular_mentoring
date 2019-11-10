@@ -2,15 +2,17 @@
   width: 100%;
 }
 .main {
+    display: flex;
+    justify-content: space-between;
     height: 163px;
     border-radius: 8px;
-    padding: 22px;
+    padding: 10px;
     margin: 10px 0px 10px 0px;
     box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
     background-color: #ffffff;
   }
   .title{
-    display: inline-block;
+    margin: 0px;
   }
   .duration{
     margin-right: 12px;
@@ -20,8 +22,10 @@
     display: inline-block;
   }
   .left{
-    float: left;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 70%;
   }
   .right{
     float: right;
@@ -29,48 +33,46 @@
     line-height: 4;
   }
   .description{
-    float: left;
-    text-align: left;
-    width: 70%;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .content{
+    display: flex;
+    justify-content: space-between;
   }
   .time{
-    width: 14px;
-    height: 16px;
-    font-family: FontAwesome;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    display: flex;
+    flex-direction: row;
     color: #b9bdce;
+    align-items: center;
   }
   .inline{
     display: inline-block;
   }
   .edit {
-    text-align: center;
-    width: 75px;
-    height: 24px;
+    display: flex;
+    padding: 6px;
+    width: 80px;
+    justify-content: space-evenly;
     background-color: #30b6dd;
     color: #ffffff;
-    margin:5px;
-    border-radius: 2px;
+    border-radius: 6px;
+    margin-right: 10px;
     cursor: pointer;
   }
   .remove{
-    text-align: center;
-    width: 75px;
-    height: 24px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px;
+    width: 80px;
     background-color: #30b6dd;
     color: #ffffff;
-    margin:5px;
-    border-radius: 2px;
+    border-radius: 6px;
     cursor: pointer;
   }
   .actions{
-    display: inline-flex;
-    float: right;
+    display: flex;
+    align-items: center;
   }
   
   

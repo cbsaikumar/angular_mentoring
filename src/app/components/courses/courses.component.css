@@ -69,3 +69,11 @@
   box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
   background-color: #ffffff;
 }
+
+.no-courses{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border: 1px solid black;
+}

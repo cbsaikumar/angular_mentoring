@@ -1,16 +1,18 @@
+import { CustomBorderDirective } from './../../shared/directives/custom-border.directive';
 import { ICourse } from './../../models/iCourse';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseComponent } from './course.component';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
+import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
 
 const course: ICourse = {
   id: 10,
   title: 'Angular Global Mentoring Program',
   description: 'Angular is one of the most famous frameworks in the market used for developing single page applications.',
   duration: 120,
-  creationDate: '12-12-2019'
+  creationDate: new Date()
 }
 describe('CourseComponent', () => {
   let component: TestHostComponent;
@@ -21,7 +23,7 @@ describe('CourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseComponent, TestHostComponent ]
+      declarations: [ CourseComponent, TestHostComponent, DurationPipe, CustomBorderDirective ]
     })
     .compileComponents();
   }));
@@ -85,7 +87,9 @@ describe('CourseComponent', () => {
       title: 'Another Angular Global Mentoring Program',
       description: 'Angular is one of the most famous frameworks in the market used for developing single page applications.',
       duration: 120,
-      creationDate: '12-12-2019'
+      creationDate: new Date()
     }
+
+    public creationDate: Date = new Date();
   }
 });

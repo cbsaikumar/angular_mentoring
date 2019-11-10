@@ -1,15 +1,15 @@
 <div class='Rectangle'>
-  <div class='main'>
+  <div class='main' [ngClass]='{"top-rated": course.isTopRated}' [customBorder]='course.creationDate'>
     <div class="left">
         <div class="content">
             <div>
-              <h2 class="title">{{ course.title }}</h2>
+              <h2 class="title">{{ course.title }}</h2><i *ngIf='course.isTopRated' class="fa fa-star" aria-hidden="true"></i>
             </div>
             <div class="time">
               <i class='fa fa-clock-o' aria-hidden='true'></i>
-              <span>{{ course.duration }}</span>
+              <span>{{ course.duration | duration}}</span>
               <i class='fa fa-calendar' aria-hidden='true'></i>
-              <span>{{ course.creationDate }}</span>
+              <span>{{ course.creationDate | date : 'dd MMM, yyyy' }}</span>
             </div>
           </div>
           <div class="description">

@@ -1,9 +1,13 @@
+import { CustomBorderDirective } from './../../shared/directives/custom-border.directive';
+import { FilterPipe } from './../../shared/pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { CourseComponent } from './../course/course.component';
 import { SearchComponent } from './../search/search.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoursesComponent } from './courses.component';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
+import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
 
 describe('CoursesComponent', () => {
   let component: CoursesComponent;
@@ -11,7 +15,7 @@ describe('CoursesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursesComponent, SearchComponent, CourseComponent ],
+      declarations: [ CoursesComponent, SearchComponent, CourseComponent, OrderByPipe, FilterPipe, DurationPipe, CustomBorderDirective ],
       imports: [FormsModule]
     })
     .compileComponents();
@@ -43,5 +47,11 @@ describe('CoursesComponent', () => {
     const spyOnNgOnInit = spyOn(component, 'ngOnInit');
     component.ngOnInit();
     expect(spyOnNgOnInit).toHaveBeenCalled();
+  });
+
+  it('should call onSearch method', () => {
+    const spyOnSearch= spyOn(component, 'onSearch');
+    component.onSearch('');
+    expect(spyOnSearch).toHaveBeenCalled();
   });
 });

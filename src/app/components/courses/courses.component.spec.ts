@@ -1,13 +1,9 @@
-import { CustomBorderDirective } from './../../shared/directives/custom-border.directive';
-import { FilterPipe } from './../../shared/pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 import { CourseComponent } from './../course/course.component';
 import { SearchComponent } from './../search/search.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoursesComponent } from './courses.component';
-import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
-import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
 
 describe('CoursesComponent', () => {
   let component: CoursesComponent;
@@ -15,8 +11,8 @@ describe('CoursesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursesComponent, SearchComponent, CourseComponent, OrderByPipe, FilterPipe, DurationPipe, CustomBorderDirective ],
-      imports: [FormsModule]
+      declarations: [ CoursesComponent, SearchComponent, CourseComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
   }));

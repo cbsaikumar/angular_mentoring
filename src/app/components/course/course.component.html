@@ -1,30 +1,30 @@
 <div class='Rectangle'>
   <div class='main'>
-    <div class='left'>
-      <h2 class='title'>{{ course.title }}</h2>
-    </div>
-    <div class='right'>
-      <div class='duration'>
-        <i class='fa fa-clock-o' aria-hidden='true'></i>
-        <span>{{ course.duration }}</span>
-      </div>
-      <div class='creationDate'>
-        <i class='fa fa-calendar' aria-hidden='true'></i>
-        <span>{{ course.creationDate }}</span>
-      </div>
-    </div>
-    <div class='description'>
-      {{ course.description }}
+    <div class="left">
+        <div class="content">
+            <div>
+              <h2 class="title">{{ course.title }}</h2>
+            </div>
+            <div class="time">
+              <i class='fa fa-clock-o' aria-hidden='true'></i>
+              <span>{{ course.duration }}</span>
+              <i class='fa fa-calendar' aria-hidden='true'></i>
+              <span>{{ course.creationDate }}</span>
+            </div>
+          </div>
+          <div class="description">
+            {{course.description}}
+          </div>
     </div>
     <div class='actions'>
-        <div class='edit'>
-          <i class='fa fa-pencil' aria-hidden='true'></i>
-          <span>Edit</span>
-        </div>
-        <div class='remove' (click)='onDelete(course.id)'>
-          <i class='fa fa-trash' aria-hidden='true'></i>
-          <span>Remove</span>
-        </div>
+      <div class='edit'>
+        <i class='fa fa-pencil' aria-hidden='true'></i>
+        <span>Edit</span>
       </div>
+      <div class='remove' (click)='onDelete(course.id)'>
+        <i class='fa fa-trash' aria-hidden='true'></i>
+        <span>Remove</span>
+      </div>
+    </div>
   </div>
 </div>

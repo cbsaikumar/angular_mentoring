@@ -9,18 +9,18 @@ export class AuthService {
   constructor() { }
 
   login(user: IUser){
-    sessionStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   logout(){
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user');
   }
 
   isAuthenticated(): boolean{
-    return sessionStorage.getItem('user') ? true : false;
+    return localStorage.getItem('user') ? true : false;
   }
 
   getUserInfo(): IUser{
-    return JSON.parse(sessionStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('user'));
   }
 }

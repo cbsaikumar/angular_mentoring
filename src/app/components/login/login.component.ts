@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const userInfo: IUser = { ...this.loginForm.value, isAuthenticated: true };
+    console.log('logged in successfully')
     this.authService.login(userInfo);
     this.router.navigateByUrl('/courses');
   }

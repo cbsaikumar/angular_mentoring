@@ -29,7 +29,7 @@ describe('CoursesComponent', () => {
 
   it('should console log the id while editing', () => {
     const spyOnLog = spyOn(console, 'log');
-    component.onDelete('1');
+    component.onDelete(1);
     expect(spyOnLog).toHaveBeenCalled();
   });
 

@@ -4,18 +4,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css']
+  styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
   @Input() course: ICourse;
-  @Output() deleteEvent: EventEmitter<string> = new EventEmitter();
+  @Output() deleteEvent: EventEmitter<number> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-  onDelete(id: string){
-    // console.log(id);
+  onDelete(id: number){
     this.deleteEvent.emit(id);
   }
 }

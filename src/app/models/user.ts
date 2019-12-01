@@ -1,7 +1,7 @@
 import { IUser } from 'src/app/models/iUser';
 
 export class User implements IUser {
-    id: string;
-    firstName: string;
-    lastName: string;
+    email: string;
+    password: string;
+    isAuthenticated: boolean;
 }

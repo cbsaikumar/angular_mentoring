@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 import { CourseComponent } from './../course/course.component';
 import { SearchComponent } from './../search/search.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -12,7 +12,7 @@ describe('CoursesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CoursesComponent, SearchComponent, CourseComponent ],
-      imports: [FormsModule]
+      imports: [SharedModule]
     })
     .compileComponents();
   }));
@@ -43,5 +43,11 @@ describe('CoursesComponent', () => {
     const spyOnNgOnInit = spyOn(component, 'ngOnInit');
     component.ngOnInit();
     expect(spyOnNgOnInit).toHaveBeenCalled();
+  });
+
+  it('should call onSearch method', () => {
+    const spyOnSearch= spyOn(component, 'onSearch');
+    component.onSearch('');
+    expect(spyOnSearch).toHaveBeenCalled();
   });
 });

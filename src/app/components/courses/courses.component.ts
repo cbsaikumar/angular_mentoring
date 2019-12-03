@@ -25,7 +25,7 @@ export class CoursesComponent implements OnInit, OnChanges, OnDestroy, AfterCont
   }
 
   addCourse(){
-    this.router.navigate(['/', 'add']);
+    this.router.navigate(['courses', 'new']);
   }
 
   onSearch(searchKey){
@@ -42,6 +42,10 @@ export class CoursesComponent implements OnInit, OnChanges, OnDestroy, AfterCont
   onDelete(id: number){
     if(confirm('Are you sure you want to delete the course?'))
       this.coursesService.removeItem(id);
+  }
+
+  onEdit(id: number){
+    this.router.navigate(['courses', id])
   }
 
   ngOnChanges(){

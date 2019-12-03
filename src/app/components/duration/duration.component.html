@@ -1,7 +1,7 @@
 <section class="content">
   <label for="duration">Duration</label>
   <div class="duration">
-    <input type="number" name="duration" id="duration" (keyup)="calcDuration($event)" formControlName="duration" />
-    <span>{{duration}}</span>
+    <input type="number" name="duration" id="duration" [(ngModel)]="duration" (keyup)="calcOutput()" />
+    <span>{{output}}</span>
   </div>
 </section>

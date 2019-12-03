@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   @Output() search:EventEmitter<string> = new EventEmitter();
-  private inputText: string;
+  public inputText: string;
   constructor() { }
 
   ngOnInit() {

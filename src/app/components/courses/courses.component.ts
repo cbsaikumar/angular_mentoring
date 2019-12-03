@@ -3,6 +3,7 @@ import { FilterPipe } from './../../shared/pipes/filter.pipe';
 import { ICourse } from '../../models/iCourse';
 import { IUser } from '../../models/iUser';
 import { Component, OnInit, OnChanges, OnDestroy, AfterContentInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -12,10 +13,10 @@ import { Component, OnInit, OnChanges, OnDestroy, AfterContentInit } from '@angu
 })
 export class CoursesComponent implements OnInit, OnChanges, OnDestroy, AfterContentInit {
 
-  private users: IUser[];
-  private noCoursesText: string;
-  private courses: ICourse[];
-  constructor(private filterPipe: FilterPipe, private coursesService: CoursesService) { }
+  public users: IUser[];
+  public noCoursesText: string;
+  public courses: ICourse[];
+  constructor(private filterPipe: FilterPipe, private coursesService: CoursesService, private router: Router) { }
 
   ngOnInit() {
     console.log('ngOnInit()');
@@ -24,7 +25,7 @@ export class CoursesComponent implements OnInit, OnChanges, OnDestroy, AfterCont
   }
 
   addCourse(){
-    console.log('add course');
+    this.router.navigate(['/', 'add']);
   }
 
   onSearch(searchKey){

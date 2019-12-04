@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/services/guards/auth-guard.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,19 +12,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddCourseComponent } from './components/add-course/add-course.component';
 import { DurationComponent } from './components/duration/duration.component';
 import { DateComponent } from './components/date/date.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
   {
-    path: 'courses', component: CoursesComponent
+    path: 'courses', component: CoursesComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'add', component: AddCourseComponent
+    path: 'courses/:id', component: AddCourseComponent, canActivate: [AuthGuard]
   },
   {
-    path: '', redirectTo: '/courses', pathMatch: 'full'
+    path: 'courses/new', component: AddCourseComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'notfound', component: NotFoundComponent
+  },
+  {
+    path: '', redirectTo: 'login', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: '/notfound'
   }
 ]
 
@@ -36,7 +47,8 @@ const appRoutes: Routes = [
     LoginComponent,
     AddCourseComponent,
     DurationComponent,
-    DateComponent
+    DateComponent,
+    NotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -44,7 +56,7 @@ const appRoutes: Routes = [
     SharedModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

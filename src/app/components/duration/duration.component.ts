@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { DurationPipe } from '../../shared/pipes/duration.pipe';
 
 @Component({
@@ -9,15 +9,16 @@ import { DurationPipe } from '../../shared/pipes/duration.pipe';
 })
 export class DurationComponent implements OnInit {
 
-  duration: string;
+  @Input() duration: number;
+  output: string;
   constructor(private durationPipe: DurationPipe) { }
 
   ngOnInit() {
+    this.output = this.durationPipe.transform(this.duration);
   }
 
-  calcDuration($event){
-    console.log($event.srcElement.value)
-    this.duration = this.durationPipe.transform($event.srcElement.value);
+  calcOutput(){
+    this.output = this.durationPipe.transform(this.duration);
   }
 
 }

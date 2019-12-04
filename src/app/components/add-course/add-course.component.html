@@ -1,0 +1,17 @@
+<form action="" [formGroup]="addCourseForm">
+  <section class="form">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" formControlName="title" />
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="4" formControlName="description"></textarea>
+      <app-date></app-date>
+      <app-duration></app-duration>
+      <label for="authors">Authors</label>
+      <input type="text" name="authors" id="authors" formControlName="authors" />
+  </section>
+
+  <section class="buttons">
+    <button>Save</button>
+    <button (click)="cancel()">Cancel</button>
+  </section>
+</form>

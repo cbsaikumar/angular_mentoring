@@ -8,6 +8,9 @@ import { SearchComponent } from './components/search/search.component';
 import { CourseComponent } from './components/course/course.component';
 import { LoginComponent } from './components/login/login.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { DurationComponent } from './components/duration/duration.component';
+import { DateComponent } from './components/date/date.component';
 
 const appRoutes: Routes = [
   {
@@ -15,6 +18,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'courses', component: CoursesComponent
+  },
+  {
+    path: 'add', component: AddCourseComponent
   },
   {
     path: '', redirectTo: '/courses', pathMatch: 'full'
@@ -27,7 +33,10 @@ const appRoutes: Routes = [
     CoursesComponent,
     SearchComponent,
     CourseComponent,
-    LoginComponent
+    LoginComponent,
+    AddCourseComponent,
+    DurationComponent,
+    DateComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -1,6 +1,16 @@
 .List-course {
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
-    background-color: #f2f3f7;
-  }
+  width: 100%;
+  display: flex;
+  height: -webkit-fill-available;
+  /* min-height: 500px; */
+  background-color: #f2f3f7;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.outlet {
+  padding-left: 85px;
+  padding-right: 85px;
+  display: flex;
+  flex-direction: column;
+}

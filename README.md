@@ -1,6 +1,8 @@
-# AngularMentoring
+# AngularMentoringProgram
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
+Global Angular Mentoring Program - 2019
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
 ## Development server
 
@@ -17,6 +19,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running unit tests with code coverage report
+
+Run `npm run coverage` to execute the unit tests and also output the code coverage report
 
 ## Running end-to-end tests
 

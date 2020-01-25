@@ -23,7 +23,7 @@ describe('CourseDurationPipe', () => {
         length: 80,
         date: new Date('11/21/2019'),
         authors: [
-          { id: 1, name: 'Bhargava', lastName: 'Chittapudi' },
+          { id: 1, name: 'Vinay', lastName: 'Itapu' },
           { id: 2, name: 'EPAM', lastName: 'Systems' }
         ],
         isTopRated: true
@@ -34,7 +34,7 @@ describe('CourseDurationPipe', () => {
   });
 
   it('should return an empty list if searched input does not match with any of the courses', () => {
-    const searchInput = 'Bhargava';
+    const searchInput = 'Vinay';
     const expectedResult: Course[] = [];
     const output = pipe.transform(searchInput, courses);
     expect(expectedResult).toEqual(output);

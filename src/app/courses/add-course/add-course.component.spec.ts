@@ -10,8 +10,10 @@ import {
 } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CoursesService } from '../../shared/services/courses/courses.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { initialUserState } from 'src/app/store/state/user.state';
+import { initialCoursesState } from 'src/app/store/state/courses.state';
 
 describe('AddCourseComponent', () => {
   let component: AddCourseComponent;
@@ -26,7 +28,14 @@ describe('AddCourseComponent', () => {
         HttpClientTestingModule
       ],
       declarations: [AddCourseComponent],
-      providers: [CoursesService],
+      providers: [
+        provideMockStore({
+          initialState: {
+            user: initialUserState,
+            courses: initialCoursesState
+          }
+        })
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
@@ -37,7 +46,7 @@ describe('AddCourseComponent', () => {
       description: new FormControl('Some description', Validators.required),
       duration: new FormControl(120, Validators.required),
       creationDate: new FormControl('03/03/1990', Validators.required),
-      authors: new FormControl(['Bhargava'], Validators.required)
+      authors: new FormControl(['Vinay'], Validators.required)
     });
     fixture = TestBed.createComponent(AddCourseComponent);
     component = fixture.componentInstance;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { isUserAuthenticatedSelector } from '../store/selectors/user';
+import { AppState } from '../store/state/app.state';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -7,13 +9,13 @@ import { AuthService } from '../shared/services/auth/auth.service';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  isAuthenticated: boolean = false;
+  isAuthenticated = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.authService.isAuthenticated$.subscribe(
-      isAuthenticated => (this.isAuthenticated = isAuthenticated)
-    );
+    this.store
+      .select(isUserAuthenticatedSelector)
+      .subscribe(isAuthenticated => (this.isAuthenticated = isAuthenticated));
   }
 }

@@ -23,8 +23,8 @@ describe('CourseDurationPipe', () => {
         length: 80,
         date: new Date('11/21/2019'),
         authors: [
-          { id: 1, name: 'Bhargava', lastName: 'Chittapudi' },
-          { id: 2, name: 'EPAM', lastName: 'Systems' }
+          { id: 1, name: 'Bhargava' },
+          { id: 2, name: 'EPAM' }
         ],
         isTopRated: true
       }

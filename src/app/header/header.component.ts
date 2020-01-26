@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth/auth.service';
 import { User } from '../models/user';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { isUserAuthenticatedSelector, userSelector } from '../store/selectors/user';
+import { combineLatest } from 'rxjs';
+import { LogOffUser } from '../store/actions/user.actions';
+import { AppState } from '../store/state/app.state';
 
 @Component({
   selector: 'app-header',
@@ -9,20 +12,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isAuthenticated: boolean = false;
+  isAuthenticated = false;
   userInfo: User;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.authService.isAuthenticated$.subscribe(isAuthenticated => {
+    combineLatest([
+      this.store.select(userSelector),
+      this.store.select(isUserAuthenticatedSelector)
+    ]).subscribe(([user, isAuthenticated]) => {
+      this.userInfo = user;
       this.isAuthenticated = isAuthenticated;
-      this.userInfo = this.authService.getUserInfo();
     });
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('');
+    this.store.dispatch(new LogOffUser());
   }
 }

@@ -8,19 +8,15 @@ export class CustomBorderDirective implements OnInit {
 
   constructor(private el: ElementRef, private renderer: Renderer) {}
 
-   ngOnInit(){
+  ngOnInit() {
     const container = this.el.nativeElement;
-
     const today = new Date();
-    const creationDate = this.creationDate;
-    let checkingDate = new Date();
-    checkingDate.setDate(checkingDate.getDate()-14);
-
-    if(creationDate < today && creationDate >= checkingDate){
+    const checkingDate = new Date();
+    checkingDate.setDate(checkingDate.getDate() - 14);
+    if (this.creationDate < today && this.creationDate >= checkingDate) {
       this.renderer.setElementStyle(container, 'border', '1px solid green');
-    } else if(creationDate > today){
+    } else if (this.creationDate > today) {
       this.renderer.setElementStyle(container, 'border', '1px solid blue');
     }
-   }
-
+  }
 }

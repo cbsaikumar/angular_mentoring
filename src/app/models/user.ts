@@ -1,7 +1,12 @@
-import { IUser } from 'src/app/models/iUser';
+export interface User {
+  id: number;
+  login: string;
+  password: string;
+  name: NameModel;
+  fakeToken: string;
+}
 
-export class User implements IUser {
-    email: string;
-    password: string;
-    isAuthenticated: boolean;
+export interface NameModel {
+  first: string;
+  last: string;
 }
